@@ -20,6 +20,7 @@ namespace Usuario
             string name;
             string surname;
             string dni;
+            Guid guid;
 
             //recuperamos variable del app.config
             string config_string = ConfigurationManager.AppSettings["filetype"].ToString();
@@ -40,6 +41,9 @@ namespace Usuario
                     Console.WriteLine("Introduce el DNI: ");
                     dni = Console.ReadLine();
 
+                    guid = Guid.NewGuid(); 
+                    
+
                     //preguntar o txt o JSON
                     Console.WriteLine("Elije una opcion: ");
                     Console.WriteLine("1- Guardar en TXT: ");
@@ -51,7 +55,7 @@ namespace Usuario
                     
 
                     //Crear objeto clase alumno
-                    ClaseAlumno miAlumno = new ClaseAlumno(id, name, surname, dni);
+                    ClaseAlumno miAlumno = new ClaseAlumno(id, name, surname, dni, guid);
 
                     
                     string guardarEnTxt = "Mi alumno: \n";

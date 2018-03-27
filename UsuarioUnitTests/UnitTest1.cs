@@ -14,9 +14,10 @@ namespace UsuarioUnitTests
     {
         [DataRow(1, "Agus", "Rojas", "1234")]
         [DataTestMethod]
-        public void txtTest(int id, string nombre, string apellidos, string dni)
+        public void txtTest(int id, string nombre, string apellidos, string dni, Guid guid)
         {
-            ClaseAlumno alumno1 = new ClaseAlumno(id, nombre, apellidos, dni);
+            ClaseAlumno alumno1 = new ClaseAlumno(id, nombre, apellidos, dni, guid);
+            Assert.IsTrue(guid == alumno1.GUID);
             Assert.IsTrue(id == alumno1.ID);
             Assert.IsTrue(nombre == alumno1.NOMBRE);
             Assert.IsTrue(apellidos == alumno1.APELLIDOS);
@@ -25,9 +26,10 @@ namespace UsuarioUnitTests
 
         [DataRow(1, "Agus", "Rojas", "1234")]
         [DataTestMethod]
-        public void jsonTest(int id, string nombre, string apellidos, string dni)
+        public void jsonTest(int id, string nombre, string apellidos, string dni, Guid guid)
         {
-            ClaseAlumno alumno1 = new ClaseAlumno(id, nombre, apellidos, dni);
+            ClaseAlumno alumno1 = new ClaseAlumno(id, nombre, apellidos, dni, guid);
+            Assert.IsTrue(guid == alumno1.GUID);
             Assert.IsTrue(id == alumno1.ID);
             Assert.IsTrue(nombre == alumno1.NOMBRE);
             Assert.IsTrue(apellidos == alumno1.APELLIDOS);
